@@ -1,0 +1,14 @@
+{
+  "wloc.js": {
+    "url": "https://wloc.app/scripts/wloc.js?v=1.1.1",
+    "sha256": "c796b7ec0252cde712260f3be41826cd564299b03967907fc052d40d86cc7a0b"
+  },
+  "wloc-settings.js": {
+    "url": "https://wloc.app/scripts/wloc-settings.js?v=1.1.1",
+    "sha256": "f528763b96b9be1903aead42a4449d872c0c88acce25c0f48229f099af13475b"
+  },
+  "wloc-route.js": {
+    "url": "https://wloc.app/scripts/wloc-route.js?v=1.1.1",
+    "sha256": "80c40669064196c1ae4ccf1b277ce4af74413e7a6da05173cce39b2567bb7935"
+  }
+}

@@ -8,6 +8,14 @@
 
 ---
 
+## WLOC Control Center 1.1.1（Surge）
+
+适配 `https://wloc.app` 的 Device Bridge、路线控制和诊断功能：
+
+https://raw.githubusercontent.com/summer87279149/wloc/main/modules/wloc-control-center.sgmodule
+
+[安装与适配说明](docs/wloc-control-center-surge.md)。请关闭其他 WLOC 模块后再启用。原有订阅地址保留如下。
+
 ## 订阅地址
 
 **Surge:**

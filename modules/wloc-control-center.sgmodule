@@ -1,0 +1,15 @@
+#!name=WLOC Control Center · Surge
+#!desc=WLOC 1.1.1：设备坐标、路线控制和诊断。精度 25m；未保存坐标时透传。需启用 MITM 并信任 Surge CA。
+#!homepage=https://github.com/summer87279149/wloc
+# Source module: https://wloc.app/modules/wloc.module
+# Version: 1.1.1-surge.1
+# Coordinates stay in Surge's persistent store. No default coordinates.
+# Disable other WLOC modules to avoid matching the same requests twice.
+
+[Script]
+WLOC Status Bridge = type=http-request, pattern=^https?:\/\/gs-loc(-cn)?\.apple\.com\/wloc-settings\/(ping|status|save|clear|export|diag), requires-body=false, max-size=-1, timeout=10, script-path=https://raw.githubusercontent.com/summer87279149/wloc/main/dist/control-center-1.1.1/wloc-settings.js, argument=accuracy=25&mode=diagnostic&logLevel=info&worker=https%3A%2F%2Fwloc.app
+WLOC Route Control = type=http-request, engine=webview, pattern=^https?:\/\/gs-loc(-cn)?\.apple\.com\/wloc-route\/(ping|save|start|pause|resume|stop|clear|status), requires-body=false, max-size=-1, timeout=10, script-path=https://raw.githubusercontent.com/summer87279149/wloc/main/dist/control-center-1.1.1/wloc-route.js, argument=accuracy=25&mode=diagnostic&logLevel=info&worker=https%3A%2F%2Fwloc.app
+WLOC Response Patch = type=http-response, pattern=^https?:\/\/gs-loc(-cn)?\.apple\.com\/clls\/wloc, requires-body=true, binary-body-mode=true, max-size=-1, timeout=30, script-path=https://raw.githubusercontent.com/summer87279149/wloc/main/dist/control-center-1.1.1/wloc.js, argument=accuracy=25&mode=diagnostic&logLevel=info&worker=https%3A%2F%2Fwloc.app
+
+[MITM]
+hostname = %APPEND% gs-loc.apple.com, gs-loc-cn.apple.com
